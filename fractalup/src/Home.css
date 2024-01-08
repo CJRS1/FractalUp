@@ -1,0 +1,186 @@
+.home_container {
+    width: 75%;
+    height: 100vh;
+    background: #e4f4fc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.filtro_container {
+    height: 150px;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filtro_card {
+    height: 70px;
+    width: 100%;
+    border-radius: 50px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+.paises_container {
+    width: 92%;
+    height: calc(100% - 120px);
+    /* background: yellow; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pais_card {
+    background: white;
+    min-width: 250px;
+    height: 184px;
+    flex: 0 0 calc(33.33% - 20px);
+    /* Ajusta el ancho de cada elemento */
+    ;
+    border-radius: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pais_img {
+    width: 100%;
+    height: 70%;
+    border-radius: 30px 30px 0 0;
+    vertical-align: middle;
+}
+
+.pais_card_info {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.bandera_img {
+    width: 50px !important;
+    height: 30px !important;
+    padding-right: 15px;
+    padding-left: 20px;
+}
+
+.pais_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.input_filtro {
+    padding-left: 30px;
+}
+
+.boton_buscar_container {
+    margin-right: 30px;
+    background:  #0494fc ;
+    padding: 8px 12px 8px 12px;
+    height: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.nombre_pais {
+    font-size: 15px;
+}
+
+.subrayado {
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    width: 185px;
+}
+
+.pais_info_detallado_container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    bottom: 0;
+    right: 0;
+    width: 240px;
+    padding: 0 20px 20px 20px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.pais_img_detalle{ 
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.pais_info_detalles{
+    display: flex;
+    justify-content: flex-start !important;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.pais_info_detalles h4{
+    padding-left: 15px;
+}
+
+.pais_info_detalles_card{
+    width: 200px;
+}
+
+.lista_region{
+    margin-top: 10px;
+}
+
+.regiones_container{
+    margin-top: 10px;
+    width: 200px;
+    height: 100px;
+    background: white;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color:  #0494fc  ;
+}
+
+h4 {
+    font-size: 13px;
+    padding-top: 2px;
+    margin: 0;
+    color: #a8afb2;
+}
+
+h5 {
+    margin: 0;
+    font-size: 10px;
+}
+
+h6 {
+    margin: 0;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 4px;
+    color: white;
+}
+
+
+
+
+@media (max-width: 600px) {
+    .home_container {
+        width: calc(100% - 150px);
+    }
+}

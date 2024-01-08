@@ -1,0 +1,26 @@
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+
+#root{
+  height: 100vh;
+}
+
+.App{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li{
+  list-style: none;
+}

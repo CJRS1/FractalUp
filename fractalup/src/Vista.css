@@ -1,0 +1,20 @@
+.vista_container{
+    width: 75%;
+    height: 100vh;
+    background:  #e4f4fc;
+    color:  #646464 ;
+}
+
+.vista_card{
+    margin: 50px 0 0 50px;
+}
+
+@media (max-width: 600px) {
+    .vista_container{
+        width: calc(100% - 150px);
+    }
+
+    .vista_card{
+        margin: 20px 0 0 20px;
+    }
+}
