@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .filtro_card {
@@ -83,7 +84,7 @@
 
 .boton_buscar_container {
     margin-right: 30px;
-    background:  #0494fc ;
+    background: #0494fc;
     padding: 8px 12px 8px 12px;
     height: 20px;
     border-radius: 20px;
@@ -102,7 +103,7 @@
     width: 185px;
 }
 
-.pais_info_detallado_container{
+.pais_info_detallado_container {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -116,32 +117,33 @@
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.pais_img_detalle{ 
+.pais_img_detalle {
     margin-top: 30px;
     margin-bottom: 20px;
     border-radius: 10px;
 }
 
-.pais_info_detalles{
+.pais_info_detalles {
     display: flex;
     justify-content: flex-start !important;
     align-items: center;
     margin-top: 10px;
 }
 
-.pais_info_detalles h4{
+.pais_info_detalles h4 {
     padding-left: 15px;
+    font-size: 15px;
 }
 
-.pais_info_detalles_card{
+.pais_info_detalles_card {
     width: 200px;
 }
 
-.lista_region{
+.lista_region {
     margin-top: 10px;
 }
 
-.regiones_container{
+.regiones_container {
     margin-top: 10px;
     width: 200px;
     height: 100px;
@@ -149,11 +151,75 @@
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
+.continente_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.continente_img_nombre {
+    width: 30%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.continente_img_nombre h5 {
+    margin-top: 10px;
+}
+
+.filtrar_continente_titulo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filtrar_continente_container {
+    position: absolute;
+    top: 130px;
+    left: 0;
+    width: 600px;
+    height: 380px;
+    background: white;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.continente_img {
+    width: 190px;
+    height: 140px;
+    border-radius: 20px;
+}
+
+.titulo_filtro {
+    color: #8c8c94;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.titulo_limpiar {
+    color: #2aacfc;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.continente_img_nombre h5 {
+    color: #8c8c94;
+    font-size: 14px;
+}
+
+.efecto-click {
+    box-shadow: 0 0 5px 2px rgba(4, 156, 252, 1);
+} 
+
 h3 {
     font-size: 18px;
     font-weight: bold;
     margin: 0;
-    color:  #0494fc  ;
+    color: #0494fc;
 }
 
 h4 {
@@ -176,7 +242,9 @@ h6 {
     color: white;
 }
 
-
+p {
+    color: #a8afb2;
+}
 
 
 @media (max-width: 600px) {

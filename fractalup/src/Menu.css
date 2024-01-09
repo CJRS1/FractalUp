@@ -42,10 +42,10 @@ ul li:nth-child(2) {
     margin-top: 15px;
 }
 
-.opcion_secundaria:hover {
+/* .opcion_secundaria:hover {
     background: white;
     color: #5c5c5c;
-}
+} */
 
 .link_opcion {
     text-decoration: none;
@@ -53,7 +53,16 @@ ul li:nth-child(2) {
     width: 100%;
 }
 
-.link_opcion:hover {
+/* .link_opcion:hover {
+    color: #5c5c5c;
+} */
+
+.opcion_secundaria.active_link {
+    background: white;
+    color: #5c5c5c;
+}
+
+.opcion_secundaria.active_link h2{
     color: #5c5c5c;
 }
 
