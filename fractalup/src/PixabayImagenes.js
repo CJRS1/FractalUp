@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const PixabayImagenes = ({ tipo, pais }) => {
     const [imagen, setImagen] = useState(null);
-    const API_KEY = process.env.API_KEY;
+    const API_KEY = '33458136-5938f67afcde83b163bbb717a';
 
     useEffect(() => {
         const obtenerImagen = async () => {
