@@ -32,7 +32,7 @@
 .paises_container {
     width: 92%;
     height: calc(100% - 120px);
-    /* background: yellow; */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -189,12 +189,13 @@
 .continente_container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .continente_img_nombre {
     width: 30%;
     margin-bottom: 20px;
+    padding: 0 8px;
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -313,8 +314,102 @@ button{
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 668px) {
     .home_container {
-        width: calc(100% - 150px);
+        width: calc(100% - 100px);
+    }
+
+    .boton_buscar_container {
+        visibility: hidden;
+    }
+
+    .subrayado{
+        width: 90px;
+    }
+
+    .filtro_card{
+        width: 158px;
+    }
+
+    .titulo_filtro {
+        font-size: 12px;
+    }
+
+    .titulo_limpiar {
+        font-size: 12px;
+    }
+
+    .filtrar_continente_container{
+        width: 210px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .filtrar_continente_titulo{
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .continente_img_nombre{
+        width: 100%;
+    }
+
+
+    .continente_container{
+        width: 210px;
+        height: 360px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-y: auto; 
+        overflow-x: hidden;
+        scrollbar-width: thin !important;
+        scrollbar-color: transparent transparent !important;  
+    }
+
+    .continente_container::-webkit-scrollbar {
+        width: 6px; 
+        height: 6px;
+        margin-bottom: 10px;
+    }
+    
+    .continente_container::-webkit-scrollbar-track {
+        background-color: #ccc; 
+    }
+    
+    .continente_container::-webkit-scrollbar-thumb {
+        background-color: #676666; 
+        text-align: center;
+        border-radius: 3px;
+        
+    } 
+
+    .paises_container{
+        width: 270px;
+        overflow-y: auto; 
+        scrollbar-width: thin !important;
+        scrollbar-color: transparent transparent !important;  
+    }
+    
+    .paises_container::-webkit-scrollbar {
+        width: 6px; 
+    }
+    
+    .paises_container::-webkit-scrollbar-track {
+        width: 90%;
+        background-color: #ccc; 
+    
+    }
+    
+    .paises_container::-webkit-scrollbar-thumb {
+        background-color: #676666; 
+        text-align: center;
+        border-radius: 3px;
+        
+    } 
+
+    .continente_img_nombre{
+        padding: 3px 0 0 6px;
+        margin-bottom: 5px;
     }
 }

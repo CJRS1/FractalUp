@@ -42,20 +42,11 @@ ul li:nth-child(2) {
     margin-top: 15px;
 }
 
-/* .opcion_secundaria:hover {
-    background: white;
-    color: #5c5c5c;
-} */
-
 .link_opcion {
     text-decoration: none;
     color: white;
     width: 100%;
 }
-
-/* .link_opcion:hover {
-    color: #5c5c5c;
-} */
 
 .opcion_secundaria.active_link {
     background: white;
@@ -79,6 +70,24 @@ h2 {
 
 @media (max-width: 600px) {
     .nav_menu {
-        width: 150px;
+        width: 100px;
     }
+
+
+
+    .continente_container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1{
+        font-size: 18px;
+    }
+
+    h2{
+        font-size: 18px;
+        padding-left: 20px;
+    }
+
+    
 }

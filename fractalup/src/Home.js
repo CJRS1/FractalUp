@@ -43,6 +43,29 @@ const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [countryDetails, setCountryDetails] = useState(null);
 
+    const [width, setWidth] = useState(window.innerWidth);
+    const [placeholderText, setPlaceholderText] = useState('Escribe el país que deseas ver');
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (width <= 668) {
+            setPlaceholderText('Escriba el país');
+        } else {
+            setPlaceholderText('Escribe el país que deseas ver');
+        }
+    }, [width]);
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (refDiv.current && !refDiv.current.contains(event.target) && !refInput.current.contains(event.target)) {
@@ -119,6 +142,7 @@ const Home = () => {
         }
     }
 
+
     console.log("los detalles", countryDetails)
     return (
         <ApolloProvider client={client}>
@@ -130,7 +154,7 @@ const Home = () => {
                             <form action="">
                                 <input className="subrayado"
                                     type="text"
-                                    placeholder='Escribe el país que deseas ver'
+                                    placeholder={placeholderText}
                                     ref={refInput}
                                     value={filtro}
                                     onChange={ingresarFiltro}

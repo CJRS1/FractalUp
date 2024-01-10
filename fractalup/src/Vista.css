@@ -11,7 +11,7 @@
 
 @media (max-width: 600px) {
     .vista_container{
-        width: calc(100% - 150px);
+        width: calc(100% - 100px);
     }
 
     .vista_card{

@@ -2,7 +2,7 @@ body{
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
+  max-height: 100vh;
   font-family: 'Ubuntu', sans-serif;
   font-size: 25px;
   font-weight: bold;
