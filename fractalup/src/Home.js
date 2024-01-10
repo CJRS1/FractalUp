@@ -1,8 +1,9 @@
-import React, { useMemo, useState, useRef, useEffect } from 'react';
+import React, { useMemo, useState, useRef, useEffect } from 'react'
 import './Home.css'
 import peru from './assets/peru.jpg'
 import continentexd from './assets/continente.jpg'
-import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client'
+import PixabayImagenes from './PixabayImagenes'
 
 const Home = () => {
     const client = useMemo(() => new ApolloClient({
@@ -40,6 +41,8 @@ const Home = () => {
     const refDiv = useRef(null);
 
     const [continente, setContinente] = useState([]);
+    const [isVisible, setIsVisible] = useState(false);
+    const [countryDetails, setCountryDetails] = useState(null);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -91,8 +94,33 @@ const Home = () => {
         setContinente([])
     }
 
+    const ocultar = () => {
+        setIsVisible(false);
+    };
 
+    const mostrarDetalles = (pais) => {
+        setIsVisible(isVisible => !isVisible);
+        console.log(pais)
+        try {
+            const foundCountry = data?.countries.find(country =>
+                country.name.toLowerCase() === pais.toLowerCase()
+            );
 
+            setCountryDetails({
+                name: foundCountry.name,
+                continent: foundCountry.continent,
+                capital: foundCountry.capital,
+                phone: foundCountry.phone,
+                currency: foundCountry.currency,
+                languages: foundCountry.languages,
+                states: foundCountry.states
+            });
+        } catch (error) {
+            console.error('Error al obtener la información del país:', error);
+        }
+    }
+
+    console.log("los detalles", countryDetails)
     return (
         <ApolloProvider client={client}>
             <div className="home_container">
@@ -154,10 +182,11 @@ const Home = () => {
                 <div className="paises_container">
                     {filtro ? (
                         filtroPaises.map(pais => (
-                            <div className="pais_card" key={pais.code}>
-                                <img className='pais_img' src={peru} alt="" />
+                            <div className="pais_card" key={pais.code}
+                                onClick={() => mostrarDetalles(pais.name)}>
+                                <PixabayImagenes tipo="ciudad" pais={pais.name} />
                                 <div className="pais_card_info">
-                                    <img className='bandera_img' src={peru} alt="" />
+                                    <PixabayImagenes tipo="bandera" pais={pais.name} />
                                     <div className="pais_info">
                                         <h3>
                                             {pais.name}
@@ -170,17 +199,18 @@ const Home = () => {
                             </div>
                         ))
                     ) : (
-                        paises.slice(0, 9).map(country => (
-                            <div className="pais_card" key={country.code}>
-                                <img className='pais_img' src={peru} alt="" />
+                        paises.slice(0, 9).map(pais => (
+                            <div className="pais_card" key={pais.code}
+                                onClick={() => mostrarDetalles(pais.name)}>
+                                <PixabayImagenes tipo="ciudad" pais={pais.name} />
                                 <div className="pais_card_info">
-                                    <img className='bandera_img' src={peru} alt="" />
+                                    <PixabayImagenes tipo="bandera" pais={pais.name} />
                                     <div className="pais_info">
                                         <h3>
-                                            {country.name}
+                                            {pais.name}
                                         </h3>
                                         <h4>
-                                            {country.continent.name}
+                                            {pais.continent.name}
                                         </h4>
                                     </div>
                                 </div>
@@ -188,16 +218,17 @@ const Home = () => {
                         ))
                     )}
                 </div>
-                <div className="pais_info_detallado_container">
-                    <img className="pais_img_detalle" src={peru} alt="" width={'200px'} />
+                <div className={`pais_info_detallado_container ${isVisible ? 'visible' : 'hidden'}`}>
+                    <button className="button_cerrar" onClick={ocultar}>X</button>
+                    <img className="pais_img_detalle" src={peru} alt="Pais" width={'200px'} />
                     <div className="pais_card_info">
-                        <img className='bandera_img' src={peru} alt="" />
+                        <img className='bandera_img' src={peru} alt="Bandera" />
                         <div className="pais_info">
                             <h3>
-                                United Kingdom
+                                {countryDetails?.name}
                             </h3>
                             <h4>
-                                Europe
+                                {countryDetails?.continent.name}
                             </h4>
                         </div>
                     </div>
@@ -207,7 +238,7 @@ const Home = () => {
                                 Capital:
                             </h3>
                             <h4>
-                                London
+                                {countryDetails?.capital}
                             </h4>
                         </div>
                         <div className="pais_info_detalles">
@@ -215,15 +246,15 @@ const Home = () => {
                                 Language:
                             </h3>
                             <h4>
-                                English
+                                {countryDetails?.languages[0].name}
                             </h4>
                         </div>
                         <div className="pais_info_detalles">
                             <h3>
-                                Population:
+                                Phone:
                             </h3>
                             <h4>
-                                500k people
+                                {countryDetails?.phone}
                             </h4>
                         </div>
                         <div className="pais_info_detalles">
@@ -231,7 +262,7 @@ const Home = () => {
                                 Currency:
                             </h3>
                             <h4>
-                                Euro, Dollar
+                                {countryDetails?.currency}
                             </h4>
                         </div>
                         <div className="lista_region">
@@ -239,7 +270,13 @@ const Home = () => {
                                 Region
                             </h3>
                             <div className="regiones_container">
-
+                                <ul className='regiones_list'>
+                                    {countryDetails && countryDetails.states && (
+                                        countryDetails.states.map((state, index) => (
+                                            <li className="regiones" key={index}>{state.name}</li>
+                                        ))
+                                    )}
+                                </ul>
                             </div>
                         </div>
                     </div>
