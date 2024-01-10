@@ -38,5 +38,23 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "vercel": {
+    "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "build"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ]
   }
 }
