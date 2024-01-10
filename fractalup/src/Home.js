@@ -98,11 +98,23 @@ const Home = () => {
 
     const paises = data && data.countries ? data.countries : [];
 
-    const filtroPaises = paises.filter(country =>
-        country.name.toLowerCase().includes(filtro.toLowerCase())
-    ).slice(0, 9);
+    // const filtroPaises = paises.filter(pais => {
+    //     return (
+    //         pais.name.toLowerCase().includes(filtro.toLowerCase()) &&
+    //         (continente.length === 0 || continente.includes(pais.continent.name))
+    //     )
+    // }).slice(0, 9);
 
-    console.log(filtroPaises)
+    const filtroPaises = paises.filter(pais => {
+        return (
+          pais.name.toLowerCase().includes(filtro.toLowerCase()) &&
+          (continente.length === 0 || (continente.includes("America") && (pais.continent.name === "North America" || pais.continent.name === "South America")) || continente.includes(pais.continent.name))
+        );
+      }).slice(0, 9);
+      
+
+
+    console.log( "filtroPaises", filtroPaises)
 
     const buscarContinente = (nombreContinente) => {
         console.log("continente")
@@ -207,7 +219,7 @@ const Home = () => {
                     )}
                 </div>
                 <div className="paises_container">
-                    {filtro ? (
+                    {filtro || continente ? (
                         filtroPaises.map(pais => (
                             <div className="pais_card" key={pais.code}
                                 onClick={() => mostrarDetalles(pais.name)}>

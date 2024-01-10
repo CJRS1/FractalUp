@@ -436,6 +436,44 @@ button {
         background-color: #676666;
         text-align: center;
         border-radius: 3px;
+    }
 
+    .filtrar_continente_container {
+        width: 400px;
+        padding: 20px;
+    }
+
+    .continente_container {
+        height: 360px;
+        justify-content: space-between;
+        overflow-y: auto;
+        scrollbar-width: thin !important;
+        scrollbar-color: transparent transparent !important;
+    }
+
+    .continente_container::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .continente_container::-webkit-scrollbar-track {
+        width: 90%;
+        background-color: #ccc;
+
+    }
+
+    .continente_container::-webkit-scrollbar-thumb {
+        background-color: #676666;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    .continente_img_nombre {
+        margin-top: 10px;
+        margin-bottom: 2px;
+        width: 180px;
+    }
+
+    .filtrar_continente_titulo{
+        margin-bottom: 0px;
     }
 }
