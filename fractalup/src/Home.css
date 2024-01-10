@@ -414,7 +414,7 @@ button {
     }
 }
 
-@media (min-width: 668px) and (max-width: 1176px) {
+@media (min-width: 668px) and (max-width: 1200px) {
     .paises_container {
         justify-content: space-around;
         overflow-y: auto;
@@ -473,7 +473,30 @@ button {
         width: 180px;
     }
 
-    .filtrar_continente_titulo{
+    .filtrar_continente_titulo {
         margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-height: 723px) {
+    .paises_container {
+        overflow-y: auto;
+        scrollbar-width: thin !important;
+        scrollbar-color: transparent transparent !important;
+    }
+
+    .paises_container::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .paises_container::-webkit-scrollbar-track {
+        width: 90%;
+        background-color: #ccc;
+    }
+
+    .paises_container::-webkit-scrollbar-thumb {
+        background-color: #676666;
+        text-align: center;
+        border-radius: 3px;
     }
 }
