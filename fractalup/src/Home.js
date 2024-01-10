@@ -1,6 +1,5 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react'
 import './Home.css'
-import peru from './assets/peru.jpg'
 import continentexd from './assets/continente.jpg'
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client'
 import PixabayImagenes from './PixabayImagenes'
@@ -184,7 +183,7 @@ const Home = () => {
                         filtroPaises.map(pais => (
                             <div className="pais_card" key={pais.code}
                                 onClick={() => mostrarDetalles(pais.name)}>
-                                <PixabayImagenes tipo="ciudad" pais={pais.name} />
+                                <PixabayImagenes tipo="ciudad1" pais={pais.name} />
                                 <div className="pais_card_info">
                                     <PixabayImagenes tipo="bandera" pais={pais.name} />
                                     <div className="pais_info">
@@ -202,7 +201,7 @@ const Home = () => {
                         paises.slice(0, 9).map(pais => (
                             <div className="pais_card" key={pais.code}
                                 onClick={() => mostrarDetalles(pais.name)}>
-                                <PixabayImagenes tipo="ciudad" pais={pais.name} />
+                                <PixabayImagenes tipo="ciudad1" pais={pais.name} />
                                 <div className="pais_card_info">
                                     <PixabayImagenes tipo="bandera" pais={pais.name} />
                                     <div className="pais_info">
@@ -220,9 +219,9 @@ const Home = () => {
                 </div>
                 <div className={`pais_info_detallado_container ${isVisible ? 'visible' : 'hidden'}`}>
                     <button className="button_cerrar" onClick={ocultar}>X</button>
-                    <img className="pais_img_detalle" src={peru} alt="Pais" width={'200px'} />
+                    <PixabayImagenes tipo="ciudad2" pais={countryDetails?.name} />
                     <div className="pais_card_info">
-                        <img className='bandera_img' src={peru} alt="Bandera" />
+                        <PixabayImagenes tipo="bandera" pais={countryDetails?.name} />
                         <div className="pais_info">
                             <h3>
                                 {countryDetails?.name}
