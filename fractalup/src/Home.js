@@ -1,6 +1,10 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react'
 import './Home.css'
-import continentexd from './assets/continente.jpg'
+import asia from './assets/asia.png'
+import africa from './assets/africa.jpg'
+import america from './assets/America.png'
+import oceania from './assets/Oceania.png'
+import europa from './assets/Europa.png'
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client'
 import PixabayImagenes from './PixabayImagenes'
 
@@ -146,9 +150,9 @@ const Home = () => {
     console.log("los detalles", countryDetails)
     return (
         <ApolloProvider client={client}>
-            <div className="home_container">
+            <aside className="home_container">
                 <div className="filtro_container">
-                    <div className="filtro_card">
+                    <section className="filtro_card">
                         <div className="input_filtro">
                             <h4 className='nombre_pais'>País</h4>
                             <form action="">
@@ -169,7 +173,7 @@ const Home = () => {
                             </svg>
                             <h6>Buscar</h6>
                         </div>
-                    </div>
+                    </section>
                     {mostrarFiltro && (
                         <div className="filtrar_continente_container" ref={refDiv}>
                             <div className="filtrar_continente_titulo">
@@ -178,24 +182,24 @@ const Home = () => {
                             </div>
                             <div className="continente_container">
                                 <div className="continente_img_nombre">
-                                    <img className={`continente_img ${continente.includes('Europe') ? 'efecto-click' : ''}`} src={continentexd} alt="Europa" onClick={() => buscarContinente('Europe')} />
+                                    <img className={`continente_img ${continente.includes('Europe') ? 'efecto-click' : ''}`} src={europa} alt="Europa" onClick={() => buscarContinente('Europe')} />
                                     <h5>Europa</h5>
                                 </div>
                                 <div className="continente_img_nombre">
-                                    <img className={`continente_img ${continente.includes('America') ? 'efecto-click' : ''}`} src={continentexd} alt="América" onClick={() => buscarContinente('America')} />
+                                    <img className={`continente_img ${continente.includes('America') ? 'efecto-click' : ''}`} src={america} alt="América" onClick={() => buscarContinente('America')} />
                                     <h5>América</h5>
                                 </div>
                                 <div className="continente_img_nombre">
-                                    <img className={`continente_img ${continente.includes('Asia') ? 'efecto-click' : ''}`} src={continentexd} alt="Asia" onClick={() => buscarContinente('Asia')} />
+                                    <img className={`continente_img ${continente.includes('Asia') ? 'efecto-click' : ''}`} src={asia} alt="Asia" onClick={() => buscarContinente('Asia')} />
                                     <h5>Asia</h5>
                                 </div>
                                 <div className="continente_img_nombre">
-                                    <img className={`continente_img ${continente.includes('Oceania') ? 'efecto-click' : ''}`} src={continentexd} alt="Oceanía
+                                    <img className={`continente_img ${continente.includes('Oceania') ? 'efecto-click' : ''}`} src={oceania} alt="Oceanía
                                     " onClick={() => buscarContinente('Oceania')} />
                                     <h5>Oceanía</h5>
                                 </div>
                                 <div className="continente_img_nombre">
-                                    <img className={`continente_img ${continente.includes('Africa') ? 'efecto-click' : ''}`} src={continentexd} alt="África" onClick={() => buscarContinente('Africa')} />
+                                    <img className={`continente_img ${continente.includes('Africa') ? 'efecto-click' : ''}`} src={africa} alt="África" onClick={() => buscarContinente('Africa')} />
                                     <h5>África</h5>
                                 </div>
                             </div>
@@ -241,7 +245,7 @@ const Home = () => {
                         ))
                     )}
                 </div>
-                <div className={`pais_info_detallado_container ${isVisible ? 'visible' : 'hidden'}`}>
+                <main className={`pais_info_detallado_container ${isVisible ? 'visible' : 'hidden'}`}>
                     <button className="button_cerrar" onClick={ocultar}>X</button>
                     <PixabayImagenes tipo="ciudad2" pais={countryDetails?.name} />
                     <div className="pais_card_info">
@@ -303,8 +307,8 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </main>
+            </aside>
         </ApolloProvider>
     )
 };
